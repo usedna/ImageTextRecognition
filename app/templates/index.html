@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+  <title>Image Prediction</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', path='/styles.css') }}">
+</head>
+<body>
+<nav>
+  <div class="navbar">
+    <a href="#" class="active">Home</a>
+  </div>
+</nav>
+  <div class="container">
+    <h2 class="title">OCR</h2>
+    <div class="drop-zone" id="drop-zone">
+      <input type="file" id="file-input" style="display: none" multiple accept="image/*">
+      <label for="file-input" class="browse-button" id="browse-button">Browse</label>
+      <p id="paragraph">Or drop the file here.</p>
+    </div>
+    <div class="file-list" id="file-list">
+    </div>
+    <button id="start-ocr-button">Start OCR</button>
+    <div class="prediction">
+      <label for="prediction-result"></label>
+      <input type="text" id="prediction-result" readonly />
+    </div>
+  </div>
+  <script src="{{ url_for('static', path='/script.js') }}"></script>
+</body>
+</html>
