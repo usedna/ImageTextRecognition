@@ -20,7 +20,7 @@ version_test = ((50, 64), (50, 128), (50, 256),
 
 for i, ep_bs in enumerate(version_test[-1:]):
        epoch, batch_size = ep_bs
-       ocr_model = tf.keras.models.load_model(f'../models_saved/v{epoch}bs{batch_size}/ocr_model_{epoch}e.hdf5')
+       ocr_model = tf.keras.models.load_model(f'path_to_model')
        fail = 0
        absent = 0
        correct = 0
@@ -52,7 +52,7 @@ for i, ep_bs in enumerate(version_test[-1:]):
                      failures[val][1].append((f, 'wrong'))
               else:
                      correct += 1
-       with open('../raw_data/test_result.txt', 'a') as ft:
+       with open('test_result.txt', 'a') as ft:
               print(f"-------------------TEST{i}-----------------------", file=ft)
               print(f"v{epoch}bs{batch_size}", file=ft)
               print("Accuracy:", fail / (correct + fail), file=ft)
