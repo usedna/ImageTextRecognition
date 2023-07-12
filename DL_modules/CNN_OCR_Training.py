@@ -11,14 +11,12 @@ from OCR.utils import pre_processing, to_categorical
 
 
 ############################
-all_path_record = "../raw_data/record.json"
-cv2_path_record = "../raw_data/record_cv2.json"
-pil_path_record = "../raw_data/record_pil.json"
+all_path_record = "path_to_paths_record.json"
 
 earlystopping = tf.keras.callbacks.EarlyStopping(monitor="val_loss",
                                         mode="min", patience=5,
                                         restore_best_weights=True)
-mc = tf.keras.callbacks.ModelCheckpoint('OCR/models_saved/ocr_model_digits1.h5',
+mc = tf.keras.callbacks.ModelCheckpoint('model_path',
                                         monitor='val_loss',
                                         mode='min',
                                         save_best_only=True)
@@ -234,8 +232,8 @@ data = load_data_record(all_path_record)
 
 img, clss, num_of_classes = prepare_data(data)
 
-for i in range(10, 11):
+for i in range(6, 11):
     bs = 2**i
     first = start_train(img, clss, num_of_classes, batch_size=bs, epoch=500)
 
-    tf.keras.models.save_model(first, f'OCR/models_saved/v500bs{bs}/ocr_model_500e.hdf5')
+    tf.keras.models.save_model(first, 'model_save_path')
