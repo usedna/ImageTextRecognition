@@ -18,13 +18,13 @@ WINDOWS_INVALID_CHAR = {"<": "less than", ">": "more than", ":": "colon ", '"': 
 
 def load_attrib():
     # All text characteristics for writing
-    with open('raw_data/text_atrib.json') as tf:
+    with open('path_to_text_atributes') as tf:
         TXT_ATRIB = json.load(tf)
     return TXT_ATRIB
 
 
 def save_model(model):
-    with open("model_trained.p", "wb") as pf:
+    with open("model_save_path", "wb") as pf:
         pickle.dump(model, pf)
 
 
