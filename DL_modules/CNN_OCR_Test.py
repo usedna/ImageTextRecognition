@@ -26,14 +26,14 @@ for i, ep_bs in enumerate(version_test[-1:]):
        correct = 0
        wrong = 0
        failures = {}
-       for f in os.listdir('../Img'):
+       for f in os.listdir('path_to_test_directory'):
               val = int(f.split('g')[1][:3]) - 1
 
 
               if val not in failures.keys():
                      failures.update({val: [0, []]})
 
-              img_original = cv2.imread(f"../Img/{f}")
+              img_original = cv2.imread("path_to_image")
               img = np.asarray(img_original)
               letter, class_indexes = predict_image(img, ocr_model)
               # print(f, letter)
