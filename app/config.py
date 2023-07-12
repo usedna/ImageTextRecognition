@@ -9,4 +9,4 @@ class MongoDB(BaseModel):
 
 mongodb = MongoDB()
 
-model = tf.keras.models.load_model("../OCR/models_saved/v200bs1024/ocr_model_200e.hdf5")
+model = tf.keras.models.load_model("path_to_model")
